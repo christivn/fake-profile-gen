@@ -2,15 +2,15 @@ import requests, json
 
 url = 'https://randomuser.me/api/?nat=es'
 x = requests.get(url)
-json=json.loads(x.text)
+json=json.loads(x.text)["results"][0]
 
-nombre=json["results"][0]["name"]["first"]
-apellido=json["results"][0]["name"]["last"]
-email=json["results"][0]["email"]
-nick=json["results"][0]["login"]["username"]
-password=json["results"][0]["login"]["password"]
-foto=json["results"][0]["picture"]["large"]
-pais=json["results"][0]["location"]["country"]
+nombre=json["name"]["first"]
+apellido=json["name"]["last"]
+email=json["email"]
+nick=json["login"]["username"]
+password=json["login"]["password"]
+foto=json["picture"]["large"]
+pais=json["location"]["country"]
 
 print("\033[93m+-----------------------------------------+\033[0m")
 print("\033[33m\033[01m Nombre:\033[0m "+nombre)
